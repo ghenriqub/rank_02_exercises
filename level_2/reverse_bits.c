@@ -6,25 +6,25 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:23:21 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:36:55 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:23:35 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 unsigned char	reverse_bits(unsigned char octet)
 {
-	unsigned int	i;
-	unsigned int	res = 0;
+	int	i = 7;
+	unsigned char	result;
 
-	i = 8;
-	while (i--)
+	while (i > 0)
 	{
-		res = (res << 1) | (octet & 1);
-		octet = octet >> 1;
+		result = (result << 1) | (octet & 1);
+		octet >>= 1;
+		i--;
 	}
-	return (res);
+	return (result);
 }
-
-#include <stdio.h>
 
 int	main(void)
 {

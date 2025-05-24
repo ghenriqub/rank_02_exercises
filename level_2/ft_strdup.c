@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 18:42:23 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/12 16:42:10 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/16 08:10:26 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(char *str)
 
 	while (str[i])
 		i++;
-	list = malloc (sizeof(char) * (i + 1));
+	list = malloc(sizeof(char) * (i + 1));
 	if (!list)
 		return (NULL);
 	i = -1;

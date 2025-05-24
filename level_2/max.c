@@ -6,22 +6,22 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:07:38 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:16:59 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/16 08:36:35 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	max(int* tab, unsigned int len)
 {
-	int	i = -1, count = -1, result = 0;
+	int	i = 0, result = 0;
 
-	if (len > 0)
+	if (len == 0)
+		return (0);
+	result = tab[0];
+	while (len > i)
 	{
-		while (++count < len)
-		{
-			if (tab[++i] > result)
-				result = tab[i];
-		}
-		return (result);
+		if (tab[i] > result)
+			result = tab[i];
+		i++;
 	}
-	return (0);
+	return (result);
 }

@@ -6,11 +6,11 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:57:17 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:58:25 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:03:59 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned char	swap_bits(unsigned char octet)
 {
-	return ((octet >> 4 | octet << 4));
+	return (octet >> 4 | octet << 4);
 }

@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:12:19 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/11 16:03:03 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/16 08:03:05 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 size_t	ft_strcspn(const char *s, const char *reject)
 {
-	size_t	i = -1;
+	size_t	i = 0;
 	size_t	j;
 
-	while (s[++i])
+	while (s[i])
 	{
-		j = -1;
-		while (reject[++j])
+		j = 0;
+		while (reject[j])
 		{
 			if (s[i] == reject[j])
 				return (i);
+			j++;
 		}
+		i++;
 	}
 	return (i);
 }

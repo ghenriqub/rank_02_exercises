@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:18:04 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/13 12:22:07 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:02:00 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 void	print_bits(unsigned char octet)
 {
-	int	i = 8;
-	unsigned char	bit = 0;
-	
-	while (i--)
+	int	i = 7;
+
+	while (i >= 0)
 	{
-		bit = (octet >> i & 1) + 48;
-		write (1, &bit, 1);
+		if (octet >> i & 1)
+			write (1, "1", 1);
+		else
+			write (1, "0", 1);
+		i--;
 	}
 }
 
 int main()
 {
+	//unsigned char octet = 42;
 	unsigned char octet = 42;
 
 	print_bits(octet);
