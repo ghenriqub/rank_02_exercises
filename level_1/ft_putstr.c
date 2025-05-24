@@ -6,14 +6,13 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 14:43:49 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/10 14:50:10 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:43:55 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-// in this function we will iterate this pointer writing every index of it
 void	ft_putstr(char *str)
 {
 	while (*str)

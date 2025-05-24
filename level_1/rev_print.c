@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 15:47:14 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/10 15:51:16 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 18:44:42 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main (int argc, char **argv)
 {
 	int	i = 0;
 
-	if (argc ==2)
+	if (argc == 2)
 	{
 		while (argv[1][i])
 			i++;
