@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 19:42:33 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/15 20:03:06 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:10:53 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-	t_list	*start;
-	int		tmp;
-	int		sorted;
+	int		temp;
+	t_list	*head = lst;
 
-	start = lst;
-	if (!lst || !lst->next)
-		return (lst);
-	while (!sorted)
+	while (lst && lst->next)
 	{
-		sorted = 1;
-		lst = start;
-		while (lst->next)
+		if (cmp(lst->data, lst->next->data) == 0)
 		{
-			if (!cmp(lst->data, lst->next->data))
-			{
-				tmp = lst->data;
-				lst->data = lst->next->data;
-				lst->next->data = tmp;
-				start = 0;
-			}
-			lst = lst->next;
+			temp = lst->data;
+			lst->data = lst->next->data;
+			lst->next->data = temp;
+			head = lst;
 		}
+		else
+			lst = lst->next;
 	}
-	return (start);
+	return (head);
 }

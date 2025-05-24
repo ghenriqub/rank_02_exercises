@@ -6,25 +6,25 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 19:38:24 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/15 19:41:58 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:21:14 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	sort_int_tab(int *tab, unsigned int size)
 {
-	int				tmp;
-	unsigned int	i = 0, j;
+	int	i = 0, j;
+	int	temp;
 
-	while (i < size - 1)
+	while (i < size)
 	{
 		j = i;
 		while (j < size)
 		{
 			if (tab[i] > tab[j])
 			{
-				tmp = tab[i];
+				temp = tab[i];
 				tab[i] = tab[j];
-				tab[j] = tmp;
+				tab[j] = temp;
 			}
 			j++;
 		}

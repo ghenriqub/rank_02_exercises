@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:24:07 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/13 15:04:12 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/16 09:26:01 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int is_prime(int nbr)
     if (nbr < 2)
         return (0);
     int i = 2;
-    while (i <= nbr / 2)
+    while (i <= nbr)
     {
         if (nbr % i == 0)
             return (0);

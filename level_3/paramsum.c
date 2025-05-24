@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:25:02 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/14 12:29:53 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/23 20:01:42 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_putnbr(int n)
 int	main(int argc, char **argv)
 {
 	(void)argv;
-	ft_putnbr(argc -1);
-	write (1, "\n", 1);
-	return (0);
+	ft_putnbr(argc - 1);
+	write(1, "\n", 1);
 }

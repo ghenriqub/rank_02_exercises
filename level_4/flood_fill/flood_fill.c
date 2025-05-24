@@ -6,27 +6,37 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:42:14 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/15 13:07:46 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 15:32:49 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "flood_fill.h"
 
-void	fill(char **tab, t_point size, char target, int row, int col)
+typedef struct  s_point
 {
-	if (row < 0 || col < 0 || row >= size.y || col >= size.x)
+	int           x;
+	int           y;
+}               t_point;
+
+void	fill(char **tab, t_point size, t_point begin, char to_fill, char c)
+{
+	if (begin.x < 0 || begin.x >= size.x || begin.y < 0 || begin.y >= size.y)
 		return ;
-	if (tab[row][col] == 'F' || tab [row][col] != target)
+	if (tab[begin.y][begin.x] != to_fill)
 		return ;
-	tab[row][col] = 'F';
-	fill(tab, size, target, row - 1, col);
-	fill(tab, size, target, row + 1, col);
-	fill(tab, size, target, row, col - 1);
-	fill(tab, size, target, row, col + 1);
+	
+	tab[begin.y][begin.x] = c;
+
+	fill(tab, size, (t_point){begin.x, begin.y + 1}, to_fill, c);
+	fill(tab, size, (t_point){begin.x, begin.y - 1}, to_fill, c);
+	fill(tab, size, (t_point){begin.x + 1, begin.y}, to_fill, c);
+	fill(tab, size, (t_point){begin.x - 1, begin.y}, to_fill, c);
 }
 
 void	flood_fill(char **tab, t_point size, t_point begin)
 {
-	char	target = tab[begin.y][begin.x];
-	fill(tab, size, target, begin.y, begin.x);
+	char	to_fill = tab[begin.y][begin.x];
+	char	c = 'F';
+
+	fill(tab, size, begin, to_fill, c);
 }

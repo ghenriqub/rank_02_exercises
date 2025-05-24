@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 13:23:26 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/15 15:38:52 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 13:00:42 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,52 @@
 
 int		ft_count_words(char *str)
 {
-	int	i = 0, count = 0, trigger = 0;
+	int	i = 0, count = 0;
 
 	while (str[i])
 	{
-		if ((str[i] != 9 && str[i] != 32) && !trigger)
+		if (str[i] && (str[i] != ' ' && str[i] != '\t'))
 		{
-			trigger = 1;
 			count++;
+			while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+				i++;
 		}
-		else if (str[i] == 9 || str[i] == 32)
-			trigger = 0;
-		i++;
+		else
+			i++;
 	}
 	return (count);
 }
 
 char	**ft_split(char *str)
 {
-	int		i = 0, j = 0, k, l = 0;
+	int	i = 0, j = 0, k, l;
 	
-	char	**result = malloc(sizeof(char *) * (ft_count_words(str) + 1));
-	if (!result)
+	char	**split = malloc(sizeof(char *) * (ft_count_words(str) + 1));
+	if (!split)
 		return (NULL);
-
+	
 	while (str[i])
 	{
-		while (str[i] == 9 || str[i] == 32)
-			i++;
-		if (!(str[i] == 9 || str[i] == 32))
+		if (str[i] != ' ' && str[i] != '\t')
 		{
 			l = 0;
-			while (!(str[i + l] == 9 || str[i + l] == 32) && str[i + l])
+			while (str[i + l] && (str[i + l] != ' ' && str[i + l] != '\t'))
 				l++;
-			result[j] = malloc(l + 1);
-			if (!result[j])
+			split[j] = malloc(sizeof(char) * (l + 1));
+			if (!split[j])
 				return (NULL);
 			k = 0;
-			while (!(str[i] == 9 || str[i] == 32) && str[i])
-				result[j][k++] = str[i++];
-			result[j][k] = '\0';
+			while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+				split[j][k++] = str[i++];
+			split[j][k] = '\0';
 			j++;
 		}
+		else
+			i++;
 	}
-	result[j] = NULL;
-	return (result);
+	split[j] = NULL;
+	return (split);
 }
-
 
 int	main(int argc, char **argv)
 {

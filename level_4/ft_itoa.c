@@ -6,51 +6,51 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 15:41:27 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/15 15:57:50 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/24 13:41:47 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_count(int nbr)
+int	ft_count(int nbr)
 {
-	int	i = 0;
+	int	count = 0;
 
 	if (nbr <= 0)
-		i++;
-	while (nbr != 0)
 	{
-		nbr = nbr / 10;
-		i++;
+		count++;
+		nbr *= -1;
 	}
-	return (i);
+	while (nbr)
+	{
+		count++;
+		nbr /= 10;
+	}
+	return (count);
 }
 
 char	*ft_itoa(int nbr)
 {
-	int			i = ft_count(nbr);
-	long int	n;
-
-	char		*str = malloc(sizeof(char) * (i + 1));
-
-	n = nbr;
+	int	len = ft_count(nbr);
+	char	**str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[i] = '\0';
-	if (n == 0)
+	str[len--] = '\0';
+	if (str == 0)
 	{
 		str[0] = '0';
 		return (str);
 	}
-	if (n < 0)
+	if (nbr < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		nbr *= -1;
 	}
-	while (n != 0)
+	while (nbr)
 	{
-		str[--i] = (n % 10) + '0';
-		n /= 10;
+		str[len] = nbr % 10 + '0';
+		nbr /= 10;
+		len--;
 	}
 	return (str);
 }
