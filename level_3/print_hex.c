@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   print_hexcopy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:44:02 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/23 19:09:35 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/23 19:38:50 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str)
+long int	ft_atoi(char *str)
 {
-	int	i = 0, result = 0, n = 1;
+	long int	i = 0, n = 1, result = 0;
 
-	while (str[i] >= 9 && str[i] <= 13)
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -27,23 +27,31 @@ int	ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result *= 10;
-		result = result + (str[i - '0']);
+		result += str[i] - '0';
 		i++;
 	}
 	return (result * n);
 }
 
-void	ft_puthex(int nbr)
+void ft_putnbr_base(int n)
 {
-	if (nbr >= 16)
-		ft_puthex(nbr / 16);
-	write(1, &"0123456789abcdef"[nbr % 16], 1);
+	if (n >= 16)
+		ft_putnbr_base(n / 16);
+	write(1, &"0123456789abcdef"[n % 16], 1);
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc == 2)
-		ft_puthex(ft_atoi(argv[1]));
-	write (1, "\n", 1);
-	return (0);
+	{
+		int	n = ft_atoi(argv[1]);
+
+		if (n < 0)
+		{
+			write (1, "-", 1);
+			n *= -1;
+		}
+		ft_putnbr_base((int)n);
+	}
+	write(1, "\n", 1);
 }

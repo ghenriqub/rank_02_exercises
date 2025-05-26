@@ -6,15 +6,11 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:24:07 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/16 09:26:01 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:40:33 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putnbr(int nbr);
-int		is_prime(int nbr);
-int		ft_atoi(char *str);
 
 int is_prime(int nbr)
 {
@@ -54,7 +50,7 @@ int	ft_atoi(char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result *= n);
+	return (result * n);
 }
 
 int	main(int argc, char **argv)
