@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 15:41:27 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/24 13:41:47 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:02:41 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_itoa(int nbr)
 	if (!str)
 		return (NULL);
 	str[len--] = '\0';
-	if (str == 0)
+	if (nbr == 0)
 	{
 		str[0] = '0';
 		return (str);

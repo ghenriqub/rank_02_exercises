@@ -6,22 +6,24 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 12:13:15 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/14 12:18:32 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:49:15 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	lcm(unsigned int a, unsigned int b)
+int ft_pgcd(unsigned int a, unsigned int b)
 {
-	unsigned int	g = (a > b) ? a : b;
+	if (b == 0)
+		return (a);
+	else
+		return (ft_pgcd(b, a % b));
+}
 
-	if (a == 0 || b == 0)
+unsigned int    lcm(unsigned int a, unsigned int b)
+{
+	if (!a || !b)
 		return (0);
-	while (1)
-	{
-		if (((g % a) == 0) && ((g % b) == 0))
-			return (g);
-		g++;
-	}
+	else
+		return ((a * b) / ft_pgcd(a, b));
 }
 
 // #include <stdio.h>

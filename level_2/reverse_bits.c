@@ -6,7 +6,7 @@
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:23:21 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/05/24 18:23:35 by ghenriqu         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:37:04 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 unsigned char	reverse_bits(unsigned char octet)
 {
-	int	i = 7;
-	unsigned char	result;
-
-	while (i > 0)
+	unsigned char novo = '\0';
+	int bit = 7;
+	int new_bit = 0;
+	
+	while (bit >= 0)
 	{
-		result = (result << 1) | (octet & 1);
-		octet >>= 1;
-		i--;
+		if (octet >> bit &1)
+			novo |= 1 << new_bit;
+		bit--;
+		new_bit++;
 	}
-	return (result);
+	return (novo);
+	
 }
 
 int	main(void)
