@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-int	ft_count(int nbr)
+int	ft_count(long nbr)
 {
 	int	count = 0;
 
@@ -29,8 +29,9 @@ int	ft_count(int nbr)
 	return (count);
 }
 
-char	*ft_itoa(int nbr)
+char	*ft_itoa(int n)
 {
+	long	nbr = n;
 	int	len = ft_count(nbr);
 	char	**str = malloc(sizeof(char) * (len + 1));
 	if (!str)

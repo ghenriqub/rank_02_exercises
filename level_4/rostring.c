@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
 void	ft_putstr(char *str)
 {
@@ -32,7 +33,7 @@ int	count_words(char *str)
 		if (str[i] != ' ' && str[i] != '\t')
 		{
 			count++;
-			while (str[i] != ' ' && str[i] != '\t')
+			while (str[i] && str[i] != ' ' && str[i] != '\t')
 				i++;
 		}
 		else
@@ -77,7 +78,7 @@ void	rostring(char *str)
 	int	end = count_words(str);
 	int	i = 1;
 
-	while (i < end)
+	while (words[i] && i < end)
 	{
 		ft_putstr(words[i]);
 		ft_putstr(" ");
